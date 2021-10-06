@@ -13,7 +13,7 @@ public class FileManagerTest {
 
     @Test
     public void should_listAllImageFiles() {
-        List<String> imageList = fileManager.listAllImages();
+        List<String> imageList = fileManager.listImageNames();
         Assert.assertNotNull(imageList);
         Assert.assertEquals(imageList.size(), 1);
         Assert.assertEquals(imageList.get(0), "epam.png");
@@ -21,7 +21,7 @@ public class FileManagerTest {
 
     @Test
     public void should_listAllDocumentFiles() {
-        List<String> documentFiles = fileManager.listAllDocumentFiles();
+        List<String> documentFiles = fileManager.listDocumentNames();
         Assert.assertNotNull(documentFiles);
         Assert.assertEquals(documentFiles.size(), 1);
         Assert.assertEquals(documentFiles.get(0), "sample.doc");
@@ -29,40 +29,40 @@ public class FileManagerTest {
 
     @Test
     public void should_retrieveFile_when_validImage() {
-        File image = fileManager.retrieveFile("epam.png");
+        File image = fileManager.getFile("epam.png");
         Assert.assertTrue(image.exists());
     }
 
     @Test(expected = InvalidFileTypeException.class)
     public void should_throwException_when_unsupportedImageType() {
-        fileManager.retrieveFile("invalidImage.img");
+        fileManager.getFile("invalidImage.img");
     }
 
     @Test
     public void should_returnEmpty_when_noImageExists() {
-        File image = fileManager.retrieveFile("invalidImage.jpg");
+        File image = fileManager.getFile("invalidImage.jpg");
         Assert.assertFalse(image.exists());
     }
 
     @Test
     public void should_retrieveFile_when_validDocument() {
-        File document = fileManager.retrieveFile("sample.doc");
+        File document = fileManager.getFile("sample.doc");
         Assert.assertTrue(document.exists());
     }
 
     @Test(expected = InvalidFileTypeException.class)
     public void should_throwException_when_unsupportedDocumentType() {
-        fileManager.retrieveFile("invalidDoc.java");
+        fileManager.getFile("invalidDoc.java");
     }
 
     @Test(expected = InvalidFileTypeException.class)
     public void should_throwException_when_retrieveFileWithNoExtension() {
-        fileManager.retrieveFile("noExtension");
+        fileManager.getFile("noExtension");
     }
 
     @Test
     public void should_returnEmpty_when_noDocumentExists() {
-        File document = fileManager.retrieveFile("invalidDoc.pdf");
+        File document = fileManager.getFile("invalidDoc.pdf");
         Assert.assertFalse(document.exists());
     }
 }
