@@ -10,7 +10,7 @@ public class CollectionOrderServiceTestHelper {
     }
 
     public void submit(Submitable collectOrderService) {
-        ((CollectOrderService) collectOrderService).submitOrder(new OrderDummy());
+        ((CollectOrderService) collectOrderService).submit(new OrderDummy());
     }
 
     public void setNotificationManager(NotificationManagerMock notificationManagerMock, Submitable collectOrderService) {

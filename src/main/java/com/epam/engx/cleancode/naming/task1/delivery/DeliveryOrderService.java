@@ -1,17 +1,17 @@
 package com.epam.engx.cleancode.naming.task1.delivery;
 
-import com.epam.engx.cleancode.naming.task1.IOrderService;
+import com.epam.engx.cleancode.naming.task1.OrderService;
 import com.epam.engx.cleancode.naming.task1.thirdpartyjar.*;
 
 import java.util.List;
 
-public class DeliveryOrderService implements IOrderService {
+public class DeliveryOrderService implements OrderService {
 
     private DeliveryService mDeliveryService;
 
     private OrderFulfilmentService mOrderFulfilmentService;
 
-    public void submitOrder(Order pOrder) {
+    public void submit(Order pOrder) {
         if (mDeliveryService.isDeliverable(pOrder)) {
             List<Product> products = pOrder.getProducts();
             mOrderFulfilmentService.fulfilProducts(products);
