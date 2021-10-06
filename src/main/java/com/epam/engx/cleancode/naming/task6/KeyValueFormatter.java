@@ -1,6 +1,6 @@
 package com.epam.engx.cleancode.naming.task6;
 
-public class Formatter {
+public class KeyValueFormatter {
 
     private static final String PLUS = "+";
     private static final String PIPE = "|";
@@ -11,7 +11,7 @@ public class Formatter {
     private static final String UNDERSCORE_SURROUNDED_WITH_SPACES = WHITESPACE + UNDERSCORE + WHITESPACE;
 
 
-    public String formatKeyValue(String key, String value) {
+    public String format(String key, String value) {
         String content = key + UNDERSCORE_SURROUNDED_WITH_SPACES + value;
         String minuses = repeatMinus(content.length());
         return PLUS + minuses + PLUS + NEW_LINE
