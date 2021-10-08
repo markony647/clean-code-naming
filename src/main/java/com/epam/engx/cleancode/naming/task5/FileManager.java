@@ -78,8 +78,8 @@ public final class FileManager {
         }
     }
 
-    private boolean isNotDirectory(File dir) {
-        return !dir.isDirectory();
+    private boolean isNotDirectory(File directory) {
+        return !directory.isDirectory();
     }
 
 }
