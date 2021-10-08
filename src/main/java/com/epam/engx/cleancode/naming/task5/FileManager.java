@@ -24,12 +24,12 @@ public final class FileManager {
         return Paths.get(dirPath, fileName).toFile();
     }
 
-    public List<String> listImageNames() {
-        return listDirectoryFilesWithExtensions(basePath, IMAGE_SUPPORTED_EXTENSIONS);
+    public List<String> getImageNames() {
+        return getFilesByExtensions(basePath, IMAGE_SUPPORTED_EXTENSIONS);
     }
 
-    public List<String> listDocumentNames() {
-        return listDirectoryFilesWithExtensions(basePath, DOCUMENT_SUPPORTED_EXTENSIONS);
+    public List<String> getDocumentNames() {
+        return getFilesByExtensions(basePath, DOCUMENT_SUPPORTED_EXTENSIONS);
     }
 
     private void validateFileType(String fileName) {
@@ -52,16 +52,16 @@ public final class FileManager {
         return !extensionPredicate.test(fileName);
     }
 
-    private List<String> listDirectoryFilesWithExtensions(String directoryPath, String[] allowedExtensions) {
+    private List<String> getFilesByExtensions(String directoryPath, String[] allowedExtensions) {
         final FileExtensionPredicate pred = new FileExtensionPredicate(allowedExtensions);
         return Arrays.asList(createDirectory(directoryPath).list(getFilenameFilterByFileExtensionPredicate(pred)));
     }
 
-    private FilenameFilter getFilenameFilterByFileExtensionPredicate(final FileExtensionPredicate pred) {
+    private FilenameFilter getFilenameFilterByFileExtensionPredicate(final FileExtensionPredicate predicate) {
         return new FilenameFilter() {
             @Override
-            public boolean accept(File dir, String str) {
-                return pred.test(str);
+            public boolean accept(File directory, String string) {
+                return predicate.test(string);
             }
         };
     }

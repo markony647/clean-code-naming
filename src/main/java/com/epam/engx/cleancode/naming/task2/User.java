@@ -6,24 +6,24 @@ public class User {
 
 	protected boolean isAdmin = false;
 
-	private final String birth;
+	private final String dateOfBirth;
 
 	private final String name;
 
-	private final User[] subordinateArray;
+	private final User[] subordinates;
 
 	private int rating;
 
-	public User(String name, String birth, User[] subordinates) {
-		this.birth = birth;
+	public User(String name, String dateOfBirth, User[] subordinates) {
+		this.dateOfBirth = dateOfBirth;
 		this.name = name;
-		this.subordinateArray = subordinates;
+		this.subordinates = subordinates;
 	}
 
 	@Override
 	public String toString() {
-		return "User [dateOfBirth=" + birth + ", name=" + name + ", isAdmin=" + isAdmin + ", subordinates="
-				+ Arrays.toString(subordinateArray) + ", rating=" + rating + "]";
+		return "User [dateOfBirth=" + dateOfBirth + ", name=" + name + ", isAdmin=" + isAdmin + ", subordinates="
+				+ Arrays.toString(subordinates) + ", rating=" + rating + "]";
 	}
 
 	public void setRating(int rating) {

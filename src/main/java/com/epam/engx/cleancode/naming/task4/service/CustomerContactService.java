@@ -7,6 +7,6 @@ public interface CustomerContactService {
 
     CustomerContact find(Long customerId);
 
-    void update(CustomerContact customerContactDetails);
+    void update(CustomerContact contact);
 
 }

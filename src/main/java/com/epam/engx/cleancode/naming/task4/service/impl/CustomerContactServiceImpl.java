@@ -15,7 +15,7 @@ public class CustomerContactServiceImpl implements CustomerContactService {
     }
 
     @Override
-    public void update(CustomerContact customerContactDetails) {
-        customerContactDAO.update(customerContactDetails);
+    public void update(CustomerContact contact) {
+        customerContactDAO.update(contact);
     }
 }

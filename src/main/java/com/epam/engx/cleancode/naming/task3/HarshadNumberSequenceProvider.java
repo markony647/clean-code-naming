@@ -3,12 +3,13 @@ package com.epam.engx.cleancode.naming.task3;
 public class HarshadNumberSequenceProvider {
 
 	private static final long SEQUENCE_LIMIT = 200;
+	private static final String NEW_LINE = "\n";
 
-	public String getFirstTwoHundredHarshadNumberSequence() {
+	public String getSequence() {
 		StringBuilder result = new StringBuilder();
 		for (int i = 1; i <= SEQUENCE_LIMIT; i++) {
 			if (isHarshad(i)) {
-				result.append(i).append("\n");
+				result.append(i).append(NEW_LINE);
 			}
 		}
 		return result.toString();
