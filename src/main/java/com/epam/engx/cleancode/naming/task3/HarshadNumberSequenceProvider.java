@@ -7,9 +7,9 @@ public class HarshadNumberSequenceProvider {
 
 	public String getSequence() {
 		StringBuilder result = new StringBuilder();
-		for (int i = 1; i <= SEQUENCE_LIMIT; i++) {
-			if (isHarshad(i)) {
-				result.append(i).append(NEW_LINE);
+		for (int currentNumber = 1; currentNumber <= SEQUENCE_LIMIT; currentNumber++) {
+			if (isHarshad(currentNumber)) {
+				result.append(currentNumber).append(NEW_LINE);
 			}
 		}
 		return result.toString();

@@ -60,8 +60,8 @@ public final class FileManager {
     private FilenameFilter getFilenameFilterByFileExtensionPredicate(final FileExtensionPredicate predicate) {
         return new FilenameFilter() {
             @Override
-            public boolean accept(File directory, String string) {
-                return predicate.test(string);
+            public boolean accept(File directory, String fileName) {
+                return predicate.test(fileName);
             }
         };
     }
