@@ -10,14 +10,14 @@ public class CollectionOrderServiceTestHelper {
     }
 
     public void submit(Submitable collectOrderService) {
-        ((CollectOrderService) collectOrderService).submitOrder(new OrderDummy());
+        ((CollectOrderService) collectOrderService).submit(new OrderDummy());
     }
 
     public void setNotificationManager(NotificationManagerMock notificationManagerMock, Submitable collectOrderService) {
-        ((CollectOrderService) collectOrderService).setSer2(notificationManagerMock);
+        ((CollectOrderService) collectOrderService).setNotificationManager(notificationManagerMock);
     }
 
     public void setCollectionService(Submitable collectOrderService, CollectionService collectionServiceStub) {
-        ((CollectOrderService) collectOrderService).setSer1(collectionServiceStub);
+        ((CollectOrderService) collectOrderService).setCollectionService(collectionServiceStub);
     }
 }

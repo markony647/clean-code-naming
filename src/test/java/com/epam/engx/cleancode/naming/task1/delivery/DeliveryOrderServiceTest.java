@@ -12,14 +12,14 @@ public class DeliveryOrderServiceTest {
         OrderFulfilmentServiceMock fulfilmentServiceMock = new OrderFulfilmentServiceMock();
         deliveryOrderService.setOrderFulfilmentService(fulfilmentServiceMock);
         deliveryOrderService.setDeliveryService(new TrueDeliveryServiceStub());
-        deliveryOrderService.submitOrder(new OrderStub("product-1"));
+        deliveryOrderService.submit(new OrderStub("product-1"));
         fulfilmentServiceMock.assertFirstProductName("product-1");
     }
 
     @Test (expected = NotDeliverableOrderException.class)
     public void shouldNotDeliverProducts() {
         deliveryOrderService.setDeliveryService(new FalseDeliveryServiceStub());
-        deliveryOrderService.submitOrder(new OrderStub("product-1"));
+        deliveryOrderService.submit(new OrderStub("product-1"));
     }
 
 }

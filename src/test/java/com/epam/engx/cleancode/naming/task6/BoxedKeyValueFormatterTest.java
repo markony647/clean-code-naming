@@ -4,18 +4,18 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FormatterTest {
+public class BoxedKeyValueFormatterTest {
     @Test
     public void shouldFormatKeyValue() {
         assertEquals(
                 "+-------------+\n" +
                 "|enable _ true|\n" +
                 "+-------------+\n",
-                new Formatter().formatKeyValue("enable", "true"));
+                new BoxedKeyValueFormatter().format("enable", "true"));
         assertEquals(
                 "+----------+\n" +
                 "|name _ Bob|\n" +
                 "+----------+\n",
-                new Formatter().formatKeyValue("name", "Bob"));
+                new BoxedKeyValueFormatter().format("name", "Bob"));
     }
 }
